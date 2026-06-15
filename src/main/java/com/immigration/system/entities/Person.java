@@ -75,4 +75,18 @@ import jakarta.persistence.MappedSuperclass;
     public void setEmail(String email) {
         this.email = email;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
+
+
