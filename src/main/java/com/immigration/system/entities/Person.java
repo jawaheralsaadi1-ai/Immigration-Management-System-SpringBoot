@@ -23,4 +23,15 @@ import jakarta.persistence.MappedSuperclass;
         private String phoneNumber;
         private String email;
 
+   // Constructor
+    public Person() {} //
+    public Person(String firstName, String lastName, String gender,
+                  String phoneNumber, String email) {
+        this.firstName   = firstName;
+        this.lastName    = lastName;
+        this.gender      = gender;
+        this.phoneNumber = phoneNumber;
+        this.email       = email;
+    }
+
 }
