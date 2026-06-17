@@ -1,4 +1,4 @@
-package com.immigration.system.dto;
+package com.immigration.system.dto.requests;
 
 
 

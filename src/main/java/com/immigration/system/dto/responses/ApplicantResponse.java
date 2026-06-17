@@ -1,9 +1,9 @@
-package com.immigration.system.dto;
+package com.immigration.system.dto.responses;
 
-
-public class ApplicantRequest {
+public class ApplicantResponse {
 
     //Declaring variables
+    private Long id;
     private String firstName;
     private String lastName;
     private String gender;
@@ -11,13 +11,15 @@ public class ApplicantRequest {
     private String email;
     private String passportNumber;
     private String nationality;
+    private boolean criminalRecord;
 
-    public ApplicantRequest() {}
+    public ApplicantResponse() {}
 
-    //Constructor
-    public ApplicantRequest(String firstName, String lastName, String gender,
-                               String phoneNumber, String email,
-                               String passportNumber, String nationality) {
+    //constructor
+    public ApplicantResponse(Long id, String firstName, String lastName, String gender,
+                                String phoneNumber, String email, String passportNumber,
+                                String nationality, boolean criminalRecord) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -25,9 +27,13 @@ public class ApplicantRequest {
         this.email = email;
         this.passportNumber = passportNumber;
         this.nationality = nationality;
+        this.criminalRecord = criminalRecord;
     }
 
-    // getter & setter methods
+    //getter & setter methods
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
@@ -48,4 +54,7 @@ public class ApplicantRequest {
 
     public String getNationality() { return nationality; }
     public void setNationality(String nationality) { this.nationality = nationality; }
+
+    public boolean isCriminalRecord() { return criminalRecord; }
+    public void setCriminalRecord(boolean criminalRecord) { this.criminalRecord = criminalRecord; }
 }
