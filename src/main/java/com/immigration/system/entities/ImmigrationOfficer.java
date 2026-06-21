@@ -23,7 +23,7 @@ public class ImmigrationOfficer extends  Person {
     private List<Interview> interviews = new ArrayList<>();
 
     //Constructors
-
+public ImmigrationOfficer() {}
     public ImmigrationOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews) {
         this.id = id;
         this.badgeNumber = badgeNumber;
