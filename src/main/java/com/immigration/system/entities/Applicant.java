@@ -15,7 +15,7 @@ public class Applicant extends Person {
     private String nationality;
     private boolean criminalRecord;
 
-@OneToMany(mappedBy = "applicent")
+@OneToMany(mappedBy = "applicant")
         private List<VisaApplication> visaApplications = new ArrayList<>();
 
 @ManyToMany(mappedBy = "applicant")
