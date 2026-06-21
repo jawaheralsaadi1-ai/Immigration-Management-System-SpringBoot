@@ -33,6 +33,9 @@ public class Applicant extends Person {
         this.interviews = interviews;
     }
 
+    public Applicant(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
+    }
+
     public Long getId() {
         return id;
     }

@@ -8,7 +8,7 @@ public class AsylumSeekerResponse extends ApplicantResponse {
 
     public AsylumSeekerResponse() {}
 // Constructor
-    public AsylumSeekerResponse(String id, String firstName, String lastName, String gender,
+    public AsylumSeekerResponse(Long id, String firstName, String lastName, String gender,
                                 String phoneNumber, String email, String passportNumber,
                                 String nationality, boolean criminalRecord,
                                 String countryOfOrigin, String sponsorOrganization) {

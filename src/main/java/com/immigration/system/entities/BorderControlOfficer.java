@@ -11,7 +11,7 @@ public class BorderControlOfficer extends ImmigrationOfficer {
     private boolean k9UnitAssigned;
 
     //Constructor
-
+    public BorderControlOfficer() {}
     public BorderControlOfficer(String assignedCheckpoint, boolean k9UnitAssigned) {
         this.assignedCheckpoint = assignedCheckpoint;
         this.k9UnitAssigned = k9UnitAssigned;
