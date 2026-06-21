@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface OfficerRepository extends JpaRepository {
-// Add custom query method
+public interface OfficerRepository extends JpaRepository<ImmigrationOfficer, Long> {
+    // Add custom query method
     List<ImmigrationOfficer> findByRank(String rank);
 }

@@ -1,7 +1,7 @@
 package com.immigration.system.dto.exceptions;
 
 /**
-(HTTP 422).
+ (HTTP 422).
  */
 public class BusinessRuleException extends RuntimeException {
 

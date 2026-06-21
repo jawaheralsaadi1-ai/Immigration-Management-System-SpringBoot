@@ -11,23 +11,19 @@ public class BorderControlOfficer extends ImmigrationOfficer {
     private boolean k9UnitAssigned;
 
     //Constructor
-public BorderControlOfficer() {}
+
     public BorderControlOfficer(String assignedCheckpoint, boolean k9UnitAssigned) {
         this.assignedCheckpoint = assignedCheckpoint;
         this.k9UnitAssigned = k9UnitAssigned;
     }
 
-    public BorderControlOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews, String assignedCheckpoint, boolean k9UnitAssigned) {
+    public BorderControlOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationCenter center, List<Interview> interviews, String assignedCheckpoint, boolean k9UnitAssigned) {
         super(id, badgeNumber, rank, clearanceLevel, active, center, interviews);
         this.assignedCheckpoint = assignedCheckpoint;
         this.k9UnitAssigned = k9UnitAssigned;
     }
 
-    public BorderControlOfficer(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews, String assignedCheckpoint, boolean k9UnitAssigned) {
-        super(firstName, lastName, gender, phoneNumber, email, id, badgeNumber, rank, clearanceLevel, active, center, interviews);
-        this.assignedCheckpoint = assignedCheckpoint;
-        this.k9UnitAssigned = k9UnitAssigned;
-    }
+
     //Getters & Setters
 
 

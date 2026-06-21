@@ -16,9 +16,9 @@ public class ApplicantResponse {
     public ApplicantResponse() {}
 
     //constructor
-    public ApplicantResponse(Long id, String firstName, String lastName, String gender,
-                                String phoneNumber, String email, String passportNumber,
-                                String nationality, boolean criminalRecord) {
+    public ApplicantResponse(String id, String firstName, String lastName, String gender,
+                             String phoneNumber, String email, String passportNumber,
+                             String nationality, boolean criminalRecord) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

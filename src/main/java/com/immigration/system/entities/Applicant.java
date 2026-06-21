@@ -1,5 +1,4 @@
 package com.immigration.system.entities;
-import com.immigration.system.dto.responses.VisaApplicationResponse;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,25 +14,17 @@ public class Applicant extends Person {
     private String nationality;
     private boolean criminalRecord;
 
-@OneToMany(mappedBy = "applicant")
-        private List<VisaApplication> visaApplications = new ArrayList<>();
+    @OneToMany(mappedBy = "applicant")
+    private List<VisaApplication> visaApplications = new ArrayList<>();
 
-@ManyToMany(mappedBy = "applicant")
-private List<Interview> interviews = new ArrayList<>();
+    @ManyToMany(mappedBy = "applicant")
+    private List<Interview> interviews = new ArrayList<>();
 
-//Constructors
-public Applicant() {}
-    public Applicant(Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
-        this.id = id;
-        this.passportNumber = passportNumber;
-        this.nationality = nationality;
-        this.criminalRecord = criminalRecord;
-        this.visaApplications = visaApplications;
-        this.interviews = interviews;
+    //Constructors
+    public Applicant() {
     }
 
-    public Applicant(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
-        super(firstName, lastName, gender, phoneNumber, email);
+    public Applicant(Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
         this.id = id;
         this.passportNumber = passportNumber;
         this.nationality = nationality;
@@ -58,6 +49,14 @@ public Applicant() {}
         return criminalRecord;
     }
 
+    public List<VisaApplication> getVisaApplications() {
+        return visaApplications;
+    }
+
+    public List<Interview> getInterviews() {
+        return interviews;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -73,4 +72,13 @@ public Applicant() {}
     public void setCriminalRecord(boolean criminalRecord) {
         this.criminalRecord = criminalRecord;
     }
+
+    public void setVisaApplications(List<VisaApplication> visaApplications) {
+        this.visaApplications = visaApplications;
+    }
+
+    public void setInterviews(List<Interview> interviews) {
+        this.interviews = interviews;
+    }
 }
+

@@ -8,10 +8,10 @@ public class AsylumSeekerResponse extends ApplicantResponse {
 
     public AsylumSeekerResponse() {}
 // Constructor
-    public AsylumSeekerResponse(Long id, String firstName, String lastName, String gender,
-                                   String phoneNumber, String email, String passportNumber,
-                                   String nationality, boolean criminalRecord,
-                                   String countryOfOrigin, String sponsorOrganization) {
+    public AsylumSeekerResponse(String id, String firstName, String lastName, String gender,
+                                String phoneNumber, String email, String passportNumber,
+                                String nationality, boolean criminalRecord,
+                                String countryOfOrigin, String sponsorOrganization) {
         super(id, firstName, lastName, gender, phoneNumber, email, passportNumber, nationality, criminalRecord);
         this.countryOfOrigin = countryOfOrigin;
         this.sponsorOrganization = sponsorOrganization;

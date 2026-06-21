@@ -1,9 +1,7 @@
 package com.immigration.system.dto.exceptions;
 
 /**
- * Thrown when manual input validation fails (null/empty required fields,
- * out-of-range values, invalid status strings). Caught by GlobalExceptionHandler
- * and converted into a ValidationErrorResponse (HTTP 400).
+ *  HTTP 400
  */
 public class ValidationException extends RuntimeException {
 
