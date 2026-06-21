@@ -1,4 +1,4 @@
-package com.immigration.system.exceptions;
+package com.immigration.system.dto.exceptions;
 
 /**
  * Thrown when manual input validation fails (null/empty required fields,
@@ -16,7 +16,7 @@ public class ValidationException extends RuntimeException {
         this.rejectedValue = rejectedValue;
     }
 
-    public ValidationException(String message) {
+    public ValidationException(int value, String exMessage, String validationFailed, String requestURI, String message, Object rejectedValue) {
         super(message);
         this.fieldName = null;
         this.rejectedValue = null;

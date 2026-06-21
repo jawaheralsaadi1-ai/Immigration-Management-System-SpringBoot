@@ -1,5 +1,7 @@
-package com.immigration.system.exceptions;
+package com.immigration.system.dto.exceptions;
 
+
+import org.springframework.http.HttpStatus;
 
 /**
  * (HTTP 404).
@@ -10,7 +12,7 @@ public class ResourceNotFoundException extends RuntimeException {
     private final String fieldName;
     private final Object fieldValue;
 
-    public ResourceNotFoundException(String resourceName, String fieldName, Object fieldValue) {
+    public ResourceNotFoundException(int value, String message, String notFound, String requestURI, String resourceName, String fieldName, Object fieldValue) {
         super(resourceName + " not found with " + fieldName + " = '" + fieldValue + "'");
         this.resourceName = resourceName;
         this.fieldName = fieldName;
@@ -18,7 +20,7 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     public ResourceNotFoundException(String resourceName, Long id) {
-        this(resourceName, "id", id);
+        this(HttpStatus.NOT_FOUND.value(), ex.getMessage(), "Not Found", request.getRequestURI(), resourceName, "id", id);
     }
 
     public String getResourceName() {

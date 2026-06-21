@@ -1,4 +1,4 @@
-package com.immigration.system.exceptions;
+package com.immigration.system.dto.exceptions;
 
 /**
 (HTTP 422).
@@ -12,7 +12,7 @@ public class BusinessRuleException extends RuntimeException {
         this.ruleViolated = ruleViolated;
     }
 
-    public BusinessRuleException(String message) {
+    public BusinessRuleException(int value, String exMessage, String businessRuleViolation, String requestURI, String message) {
         super(message);
         this.ruleViolated = "GENERAL_BUSINESS_RULE";
     }
