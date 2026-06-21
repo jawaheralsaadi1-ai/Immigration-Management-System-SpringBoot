@@ -1,4 +1,4 @@
-package com.immigration.system.dto.responses;
+package com.immigration.system.exceptions;
 
 /**
 (HTTP 422).

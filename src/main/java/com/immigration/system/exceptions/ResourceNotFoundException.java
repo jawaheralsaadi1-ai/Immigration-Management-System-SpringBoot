@@ -1,21 +1,23 @@
-package com.immigration.system.dto.responses;
+package com.immigration.system.exceptions;
 
-///(HTTP 404).
 
-public class ResourceNotFoundErrorResponse extends RuntimeException {
+/**
+ * (HTTP 404).
+ */
+public class ResourceNotFoundException extends RuntimeException {
 
     private final String resourceName;
     private final String fieldName;
     private final Object fieldValue;
 
-    public ResourceNotFoundErrorResponse(String resourceName, String fieldName, Object fieldValue) {
+    public ResourceNotFoundException(String resourceName, String fieldName, Object fieldValue) {
         super(resourceName + " not found with " + fieldName + " = '" + fieldValue + "'");
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;
     }
 
-    public ResourceNotFoundErrorResponse(String resourceName, Long id) {
+    public ResourceNotFoundException(String resourceName, Long id) {
         this(resourceName, "id", id);
     }
 
