@@ -1,6 +1,8 @@
 package com.immigration.system.entities;
+import com.immigration.system.dto.responses.VisaApplicationResponse;
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Applicant extends Person {
@@ -13,9 +15,32 @@ public class Applicant extends Person {
     private String nationality;
     private boolean criminalRecord;
 
+@OneToMany(mappedBy = "applicent")
+        private List<VisaApplication> visaApplications = new ArrayList<>();
 
+@ManyToMany(mappedBy = "applicant")
+private List<Interview> interviews = new ArrayList<>();
 
+//Constructors
+public Applicant() {}
+    public Applicant(Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
+        this.id = id;
+        this.passportNumber = passportNumber;
+        this.nationality = nationality;
+        this.criminalRecord = criminalRecord;
+        this.visaApplications = visaApplications;
+        this.interviews = interviews;
+    }
 
+    public Applicant(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String passportNumber, String nationality, boolean criminalRecord, List<VisaApplication> visaApplications, List<Interview> interviews) {
+        super(firstName, lastName, gender, phoneNumber, email);
+        this.id = id;
+        this.passportNumber = passportNumber;
+        this.nationality = nationality;
+        this.criminalRecord = criminalRecord;
+        this.visaApplications = visaApplications;
+        this.interviews = interviews;
+    }
 
     public Long getId() {
         return id;
