@@ -13,6 +13,7 @@ public class OfficerRequest {
     private int clearanceLevel;
     private Long Id;
     private boolean active;
+    private Long centerId;
 
 
     public OfficerRequest() {}
@@ -48,4 +49,7 @@ public class OfficerRequest {
 
     public boolean isActive() {return active;}
     public void setActive(boolean active) {this.active = active;}
+
+    public Long getCenterId() { return centerId; }
+    public void setCenterId(Long centerId) { this.centerId = centerId; }
 }
