@@ -17,14 +17,16 @@ public class ImmigrationOfficer extends  Person {
     private boolean active;
     @ManyToOne
     @JoinColumn(name = "center_id")
-    private ImmigrationOfficer center;
+    private ImmigrationCenter center;
 
     @OneToMany(mappedBy = "officer")
     private List<Interview> interviews = new ArrayList<>();
 
     //Constructors
-public ImmigrationOfficer() {}
-    public ImmigrationOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews) {
+    public ImmigrationOfficer() {
+    }
+
+    public ImmigrationOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationCenter center, List<Interview> interviews) {
         this.id = id;
         this.badgeNumber = badgeNumber;
         this.rank = rank;
@@ -34,17 +36,8 @@ public ImmigrationOfficer() {}
         this.interviews = interviews;
     }
 
-    public ImmigrationOfficer(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews) {
-        super(firstName, lastName, gender, phoneNumber, email);
-        this.id = id;
-        this.badgeNumber = badgeNumber;
-        this.rank = rank;
-        this.clearanceLevel = clearanceLevel;
-        this.active = active;
-        this.center = center;
-        this.interviews = interviews;
-    }
     //Getter & Setter
+
 
     public Long getId() {
         return id;
@@ -66,7 +59,7 @@ public ImmigrationOfficer() {}
         return active;
     }
 
-    public ImmigrationOfficer getCenter() {
+    public ImmigrationCenter getCenter() {
         return center;
     }
 
@@ -94,7 +87,7 @@ public ImmigrationOfficer() {}
         this.active = active;
     }
 
-    public void setCenter(ImmigrationOfficer center) {
+    public void setCenter(ImmigrationCenter center) {
         this.center = center;
     }
 
