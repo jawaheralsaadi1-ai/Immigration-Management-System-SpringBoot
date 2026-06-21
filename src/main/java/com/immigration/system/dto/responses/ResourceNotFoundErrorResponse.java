@@ -1,57 +1,33 @@
 package com.immigration.system.dto.responses;
 
-import java.time.LocalDateTime;
+///(HTTP 404).
 
-public class ResourceNotFoundErrorResponse {
+public class ResourceNotFoundErrorResponse extends RuntimeException {
 
-        private int status;
-        private String message;
-        private String error;
-        private LocalDateTime timestamp;
-        private String path;
-        private String resourceName;
-        private String fieldName;
-        private Object fieldValue;
+    private final String resourceName;
+    private final String fieldName;
+    private final Object fieldValue;
 
-    //  Constructors
-    public ResourceNotFoundErrorResponse() {}
-
-    public ResourceNotFoundErrorResponse(int status, String message, String error,
-                                         String path, String resourceName,
-                                         String fieldName, Object fieldValue) {
-        this.status = status;
-        this.message = message;
-        this.error = error;
-        this.path = path;
+    public ResourceNotFoundErrorResponse(String resourceName, String fieldName, Object fieldValue) {
+        super(resourceName + " not found with " + fieldName + " = '" + fieldValue + "'");
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;
-        this.timestamp = LocalDateTime.now();
     }
 
-    //  Getters & Setters
-    public int getStatus() { return status; }
-    public void setStatus(int status) { this.status = status; }
+    public ResourceNotFoundErrorResponse(String resourceName, Long id) {
+        this(resourceName, "id", id);
+    }
 
-    public String getMessage() { return message; }
-    public void setMessage(String message) { this.message = message; }
+    public String getResourceName() {
+        return resourceName;
+    }
 
-    public String getError() { return error; }
-    public void setError(String error) { this.error = error; }
+    public String getFieldName() {
+        return fieldName;
+    }
 
-    public LocalDateTime getTimestamp() { return timestamp; }
-    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
-
-    public String getPath() { return path; }
-    public void setPath(String path) { this.path = path; }
-
-    public String getResourceName() { return resourceName; }
-    public void setResourceName(String resourceName) { this.resourceName = resourceName; }
-
-    public String getFieldName() { return fieldName; }
-    public void setFieldName(String fieldName) { this.fieldName = fieldName; }
-
-    public Object getFieldValue() { return fieldValue; }
-    public void setFieldValue(Object fieldValue) { this.fieldValue = fieldValue; }
+    public Object getFieldValue() {
+        return fieldValue;
+    }
 }
-
