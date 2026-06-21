@@ -1,9 +1,5 @@
 package com.immigration.system.dto.exceptions;
 
-
-import com.immigration.system.dto.exceptions.BusinessRuleException;
-import com.immigration.system.dto.exceptions.ResourceNotFoundException;
-import com.immigration.system.dto.exceptions.ValidationException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +7,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * Central place that converts thrown exceptions into the project's
- * three dedicated error response shapes (Validation / ResourceNotFound / BusinessRule),
- * plus generic fallbacks so nothing leaks a raw stack trace to the client.
+ * Central place that converts thrown exceptions into the project
+ *
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // ─── 404 — Resource Not Found ────────────────────────────────────────────
+    // 404
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ResourceNotFoundException> handleResourceNotFound(
             ResourceNotFoundException ex, HttpServletRequest request) {
@@ -35,7 +30,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
-    // ─── 422 — Business Rule Violation ───────────────────────────────────────
+    // 422
     @ExceptionHandler(BusinessRuleException.class)
     public ResponseEntity<BusinessRuleException> handleBusinessRule(
             BusinessRuleException ex, HttpServletRequest request) {
@@ -50,7 +45,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
-    // ─── 400 — Manual Validation Failure ─────────────────────────────────────
+    // 400
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<ValidationException> handleValidation(
             ValidationException ex, HttpServletRequest request) {
@@ -66,10 +61,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
-    // ─── 400 — Fallback for plain RuntimeException("...") per spec ──────────
-    // (Task instructions say "throw a standard RuntimeException" in places;
-    //  this ensures those still return a clean validation-style response
-    //  instead of a 500.)
+    //  400
+    //
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ValidationException> handleRuntimeException(
             RuntimeException ex, HttpServletRequest request) {
@@ -85,7 +78,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
-    // ─── 500 — Catch-all ──────────────────────────────────────────────────────
+    // 500
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ValidationException> handleGenericException(
             Exception ex, HttpServletRequest request) {
