@@ -13,6 +13,10 @@ public class Applicant extends Person {
     private String nationality;
     private boolean criminalRecord;
 
+
+
+
+
     public Long getId() {
         return id;
     }
