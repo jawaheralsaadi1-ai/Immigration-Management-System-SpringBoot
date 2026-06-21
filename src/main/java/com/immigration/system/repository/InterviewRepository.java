@@ -9,4 +9,5 @@ public interface InterviewRepository extends JpaRepository<Interview, Long> {
 
     //Add custom query methods
     List<Interview> findByOfficerIdAndInterviewDate(Long officerId, String date);
+    List<Interview> findByApplicantId(Long applicantId);
 }
