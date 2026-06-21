@@ -1,8 +1,8 @@
 package com.immigration.system.entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ImmigrationOfficer extends  Person {
@@ -15,4 +15,90 @@ public class ImmigrationOfficer extends  Person {
     private String rank;
     private int clearanceLevel;
     private boolean active;
+    @ManyToOne
+    @JoinColumn(name = "center_id")
+    private ImmigrationOfficer center;
+
+    @OneToMany(mappedBy = "officer")
+    private List<Interview> interviews = new ArrayList<>();
+
+    //Constructors
+
+    public ImmigrationOfficer(Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews) {
+        this.id = id;
+        this.badgeNumber = badgeNumber;
+        this.rank = rank;
+        this.clearanceLevel = clearanceLevel;
+        this.active = active;
+        this.center = center;
+        this.interviews = interviews;
+    }
+
+    public ImmigrationOfficer(String firstName, String lastName, String gender, String phoneNumber, String email, Long id, String badgeNumber, String rank, int clearanceLevel, boolean active, ImmigrationOfficer center, List<Interview> interviews) {
+        super(firstName, lastName, gender, phoneNumber, email);
+        this.id = id;
+        this.badgeNumber = badgeNumber;
+        this.rank = rank;
+        this.clearanceLevel = clearanceLevel;
+        this.active = active;
+        this.center = center;
+        this.interviews = interviews;
+    }
+    //Getter & Setter
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getBadgeNumber() {
+        return badgeNumber;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public int getClearanceLevel() {
+        return clearanceLevel;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public ImmigrationOfficer getCenter() {
+        return center;
+    }
+
+    public List<Interview> getInterviews() {
+        return interviews;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setBadgeNumber(String badgeNumber) {
+        this.badgeNumber = badgeNumber;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public void setClearanceLevel(int clearanceLevel) {
+        this.clearanceLevel = clearanceLevel;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setCenter(ImmigrationOfficer center) {
+        this.center = center;
+    }
+
+    public void setInterviews(List<Interview> interviews) {
+        this.interviews = interviews;
+    }
 }
