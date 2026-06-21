@@ -13,5 +13,22 @@ public class AsylumSeeker extends Applicant {
         this.countryOfOrigin = countryOfOrigin;
         this.sponsorOrganization = sponsorOrganization;
     }
+    //Getters & Setters
+
+    public String getCountryOfOrigin() {
+        return countryOfOrigin;
+    }
+
+    public String getSponsorOrganization() {
+        return sponsorOrganization;
+    }
+
+    public void setCountryOfOrigin(String countryOfOrigin) {
+        this.countryOfOrigin = countryOfOrigin;
+    }
+
+    public void setSponsorOrganization(String sponsorOrganization) {
+        this.sponsorOrganization = sponsorOrganization;
+    }
 }
 
